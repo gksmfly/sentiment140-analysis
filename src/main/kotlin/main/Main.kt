@@ -81,10 +81,10 @@ fun main(args: Array<String>) {
         return
     }
 
-    val sampleSize = 200
-    val sampleTweets = TweetReader.read(path).shuffled().take(sampleSize).toList()
+    val sampleSize = 1000
+    val sampleTweets = TweetReader.read(path).shuffled(kotlin.random.Random(42)).take(sampleSize).toList()
 
-    println("GPT 모델로 $sampleSize 개 샘플 평가 중... (시간 걸릴 수 있음)")
+    println("GPT 모델로 ${sampleSize}개 샘플 평가 중... (시간 걸릴 수 있음)")
     val llmPredicted = sampleTweets.map { OpenAILLM.classify(it.text, apiKey) }
     val accuracy = LLMComparison.evaluate(sampleTweets, llmPredicted)
 
