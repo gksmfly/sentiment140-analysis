@@ -28,6 +28,7 @@ sentiment140-analysis/
             │   └── Tweet.kt
             └── reader/
                 └── TweetReader.kt
+```
 
 ## 📦 데이터 파일 준비
 
@@ -40,6 +41,7 @@ Sentiment140 데이터는 라이선스 문제로 인해 Git에 포함되지 않�
 sentiment140-analysis/
 └── data/
     └── training.1600000.processed.noemoticon.csv
+```
 
 ## ▶️ 프로젝트 실행 방법
 
@@ -52,14 +54,67 @@ sentiment140-analysis/
 
 ```bash
 ./gradlew build
+```
 
 ### 3. 프로그램 실행
 기본 경로(`data/training.1600000.processed.noemoticon.csv`)로 실행:
 
 ```bash
 ./gradlew run
+```
 
-## 🔑 LLM(API) 감정 분석 기능 사용 (선택 기능)
+## 🔑 LLM(API) 감정 분석 기능 사용
 
 OpenAILLM.kt를 통해 GPT 모델로 감정 분류 정확도(Accuracy)를 평가할 수 있습니다.
 이를 위해 OpenAI API Key를 환경 변수로 등록해야 합니다.
+
+### macOS 전체 앱 환경 변수 등록
+```
+launchctl setenv OPENAI_API_KEY " "
+```
+" "에 키 값을 넣으면 됩니다.
+
+## 주요 실행 결과 예시
+아래는 실제 실행 결과 예시입니다.
+
+### 감정 분포
+```
+Negative (0): 456259
+Positive (4): 379459
+```
+
+### 활동량 Top 20 사용자
+```
+lost_dog: 274 tweets
+tweetpet: 236 tweets
+webwoke: 211 tweets
+...
+```
+
+### 긍정 단어 Top Words
+```
+love, good, thanks, lol, day, happy ...
+```
+
+### 부정 단어 Top Words
+```
+not, have, don, miss, sad, want, need ...
+```
+
+### LLM 정확도 비교
+```
+GPT 모델로 200개 샘플 평가 중...
+LLM Accuracy = 0.77
+```
+
+## AI 도구 활용 방법
+본 프로젝트는 다음과 같은 방식으로 AI를 활용했습니다:
+	•	데이터 전처리 파이프라인 설계 조언
+	•	Kotlin 함수형 프로그래밍 스타일 검토
+	•	CSV 스트리밍 처리 구조 개선
+	•	LLM(OpenAI API)을 활용한 감정 분류 비교 기능 구현
+	•	README.md 및 analysis.md 문서 자동 생성
+
+AI는 보조 역할이며, 핵심 기능 구현 및 리팩토링은 직접 수행했습니다.
+
+
