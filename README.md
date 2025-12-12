@@ -106,13 +106,3 @@ not, have, don, miss, sad, want, need ...
 GPT 모델로 200개 샘플 평가 중...
 LLM Accuracy = 0.77
 ```
-
-### AI 도구 활용 방법
-본 프로젝트는 다음과 같은 방식으로 AI를 활용했습니다:
-- 데이터 전처리 파이프라인 설계 조언
-- Kotlin 함수형 프로그래밍 스타일 검토
-- CSV 스트리밍 처리 구조 개선
-- LLM(OpenAI API)을 활용한 감정 분류 비교 기능 구현
-- README.md 및 analysis.md 문서 자동 생성
-
-AI는 보조 역할이며, 핵심 기능 구현 및 리팩토링은 직접 수행했습니다.
